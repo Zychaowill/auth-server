@@ -1,6 +1,0 @@
-server:
-    port: 8081
-    context-path: /auth
-security:
-    basic:
-      enabled: false
