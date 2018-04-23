@@ -20,7 +20,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-import com.oauth.authserver.dao.entity.SysUser;
+import com.oauth.authserver.dao.bo.UserBO;
 
 @Configuration
 @EnableAuthorizationServer
@@ -79,7 +79,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 		@Override
 		public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
 			String userName = authentication.getUserAuthentication().getName();
-			SysUser user = (SysUser) authentication.getUserAuthentication().getPrincipal();
+			UserBO user = (UserBO) authentication.getUserAuthentication().getPrincipal();
 			final Map<String, Object> additionalInformation = new HashMap<String, Object>(2);
 			additionalInformation.put("userName", userName);
 			additionalInformation.put("roles", user.getRoles());
