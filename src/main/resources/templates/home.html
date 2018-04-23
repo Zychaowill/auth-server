@@ -33,9 +33,15 @@
 	<p class="bg-primary" th:text="${msg.content}"></p>
 	<div sec:authorize="hasRole('ROLE_ADMIN')">
 		<p class="bg-info" th:text="${msg.extraInfo}"></p>
+		<p class="navbar-brand"><a th:href="@{/resources/admin}">view admin</a></p>/
+		<p class="navbar-brand"><a th:href="@{/resources/principal}">view principal</a></p>/
+		<p class="navbar-brand"><a th:href="@{/resources/roles}">view user roles</a></p>		
 	</div>
 	<div sec:authorize="hasRole('ROLE_USER')">
 		<p class="bg-info">No more information to show!</p>
+		<p class="navbar-brand"><a th:href="@{/resources/user}">view user</a></p>/
+		<p class="navbar-brand"><a th:href="@{/resources/principal}">view principal</a></p>/
+		<p class="navbar-brand"><a th:href="@{/resources/roles}">view user roles</a></p>
 	</div>
 	<form th:action="@{/logout}" method="POST">
 		<input type="submit" class="btn btn-primary" value="logout" />
